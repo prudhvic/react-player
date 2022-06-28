@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-y: auto;
+  
 }
 
 body {
@@ -58,7 +58,7 @@ header h1::first-letter {
     width: 23vw;
     transform: translateX(0%);
     transition: 0.5s;
-    overflow:scroll;
+   
   }
   .library.active {
     transform: translateX(-100%);
