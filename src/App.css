@@ -127,6 +127,7 @@ input:focus {
     z-index: 20;
     transform: translateX(-100%);
     opacity: 0;
+overflow-y:scroll;
   }
   .library.active {
     transform: translateX(0%);
