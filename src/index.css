@@ -58,6 +58,7 @@ header h1::first-letter {
     width: 23vw;
     transform: translateX(0%);
     transition: 0.5s;
+    overflow:scroll;
   }
   .library.active {
     transform: translateX(-100%);
