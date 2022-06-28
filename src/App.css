@@ -69,10 +69,11 @@ input:focus {
   position: fixed;
   top: 0%;
   left: 0;
-  height: 100vh;
+  height: 100%;
   display: grid;
   gap: 0.3em;
   background-color: black;
+overflow-y:scroll;
 }
 .library img {
   --img-size: 5rem;
@@ -128,6 +129,7 @@ input:focus {
     transform: translateX(-100%);
     opacity: 0;
 overflow-y:scroll;
+height:100%;
   }
   .library.active {
     transform: translateX(0%);
