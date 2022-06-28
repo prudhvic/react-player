@@ -1,13 +1,83 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 2em;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 960px;
+  padding: 1em;
+  width: 100%;
+  height: 10vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+nav h2 {
+  background-color: white;
+  font-size: 1.8rem;
+  font-style: italic;
+  border: none;
+  color: black;
+  gap: 0.2em;
+  padding: 0.3em 0.6em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+header h1 {
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+header h1::first-letter {
+  font-size: 3rem;
+}
+@media (min-width: 1200px) {
+  .library {
+    width: 23vw;
+    transform: translateX(0%);
+    transition: 0.5s;
+  }
+  .library.active {
+    transform: translateX(-100%);
+  }
+  img {
+    object-fit: cover;
+  }
+  h1 {
+    margin-right: -2em;
+  }
+  nav h2 {
+    z-index: 699000;
+    position: fixed;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    top: 0;
+    margin-top: 1.3em;
+    right: 20%;
+  }
 }

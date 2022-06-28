@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+:root {
+  --img-size: 14rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.song-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.song {
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
+  gap: 1rem;
+  align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.song img {
+  border-radius: 50%;
+  width: var(--img-size);
+  object-fit: cover;
+  height: var(--img-size);
+}
+.song h2 {
+  font-size: 1.8rem;
+}
+.song p {
+  font-size: 1.3rem;
+}
+.player {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+  padding: 1em;
+}
+.player-controls {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 500px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0 auto;
+}
+.time-controls {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  align-items: center;
+  margin: 0 auto;
+  gap: 1em;
+}
+.player-controls button {
+  background-color: transparent;
+  font-size: 3rem;
+  display: grid;
+  place-items: center;
+  border: none;
+}
+.player-controls button:is(:hover, :focus) svg,
+button:focus {
+  color: rgba(0, 0, 0, 0.8);
+  outline: none;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+.library {
+  position: fixed;
+  top: 0%;
+  left: 0;
+  height: 100vh;
+  display: grid;
+  gap: 0.3em;
+  background-color: black;
+}
+.library img {
+  --img-size: 5rem;
+  width: var(--img-size);
+  height: var(--img-size);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.library-song {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   color: white;
+  cursor: pointer;
+  padding: 0.4em;
+  transition: 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.library-song p {
+  font-size: 0.9rem;
 }
-
-@keyframes App-logo-spin {
-  from {
+.library-song h3 {
+  font-size: 1rem;
+}
+.library-song:hover {
+  background-color: rgb(245, 250, 253);
+  color: black;
+}
+.library-song.active {
+  background-color: rgb(213, 220, 225);
+  color: black;
+}
+.library-song img.rotate,
+.song.active img {
+  animation: rotateImg 2s infinite linear;
+}
+.library-song > div {
+  display: grid;
+  gap: 0.5em;
+}
+@keyframes rotateImg {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+@media (max-width: 968px) {
+  .library {
+    width: 100vw;
+    z-index: 20;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  .library.active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: 0.5s;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  nav h2 {
+    z-index: 699000;
+    position: fixed;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    top: 0;
+    margin-top: 1.3em;
+    right: 5%;
+  }
+}
+input {
+  accent-color: black;
+  /* padding: 0.3em; */
+  height: 2rem;
 }
